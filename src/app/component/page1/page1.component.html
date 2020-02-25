@@ -1,0 +1,29 @@
+<h1>Formulario cliente Peso = {{peso}}</h1>
+<form [formGroup]="formsDates">
+    <div class="form-group">
+        <p>Nombre : <input type="text" formControlName="nombre"> </p>
+    </div>
+    <div class="form-group">
+        <p>Peso : <input type="text" formControlName="peso"> </p>
+    </div>
+    <div class="form-group">
+        <p>Dieta : <input type="text" formControlName="dieta"> </p>
+    </div>
+    <div><button (click)="submit()">Medir masa</button>
+        <app-page2 *ngIf="peso; else showDos"
+        [nombre]="nombre"
+        [peso]="peso"
+        [dieta]="dieta">
+        </app-page2>
+        <ng-template #showDos>
+            <app-page3 
+            [nombre]="nombre"
+            [peso]="peso"
+            [dieta]="dieta">
+            </app-page3>
+        </ng-template>
+    </div>
+
+</form>
+
+
